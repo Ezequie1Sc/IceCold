@@ -1,112 +1,92 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const slides = document.querySelectorAll('.carousel-slide');
-  const indicators = document.querySelectorAll('.indicator');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const progressFill = document.getElementById('progressFill');
-  const currentSlideEl = document.getElementById('currentSlide');
-  const totalSlidesEl = document.getElementById('totalSlides');
-  
-  let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  // ── SELECCIÓN DE ELEMENTOS DE INTERFAZ ──
+  const slides = document.querySelectorAll(".carousel-slide");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+  const indicators = document.querySelectorAll(".indicators .indicator");
+  const progressFill = document.getElementById("progressFill");
+  const currentSlideText = document.getElementById("currentSlide");
+  const totalSlidesText = document.getElementById("totalSlides");
+
+  let currentIdx = 0;
   const totalSlides = slides.length;
-  let autoPlayInterval;
-  const AUTO_PLAY_DELAY = 5000;
-  let isTransitioning = false;
-  
-  totalSlidesEl.textContent = String(totalSlides).padStart(2, '0');
-  
-  function goToSlide(index) {
-    if (isTransitioning || index === currentIndex) return;
-    isTransitioning = true;
-    
-    slides.forEach(slide => slide.classList.remove('active'));
-    indicators.forEach(ind => ind.classList.remove('active'));
-    
-    currentIndex = index;
-    
-    setTimeout(() => {
-      slides[currentIndex].classList.add('active');
-      indicators[currentIndex].classList.add('active');
-      currentSlideEl.textContent = String(currentIndex + 1).padStart(2, '0');
-      
-      progressFill.style.transition = 'none';
-      progressFill.style.width = '0%';
-      setTimeout(() => {
-        progressFill.style.transition = `width ${AUTO_PLAY_DELAY}ms linear`;
-        progressFill.style.width = '100%';
-      }, 50);
-      
-      isTransitioning = false;
-    }, 100);
+
+  // Inicializar el contador total con formato de dos dígitos (ej: 05)
+  if (totalSlidesText) {
+    totalSlidesText.textContent = String(totalSlides).padStart(2, "0");
   }
-  
-  function nextSlide() {
-    if (isTransitioning) return;
-    const nextIndex = (currentIndex + 1) % totalSlides;
-    goToSlide(nextIndex);
-  }
-  
-  function prevSlide() {
-    if (isTransitioning) return;
-    const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    goToSlide(prevIndex);
-  }
-  
-  function startAutoPlay() {
-    if (autoPlayInterval) clearInterval(autoPlayInterval);
-    autoPlayInterval = setInterval(nextSlide, AUTO_PLAY_DELAY);
-  }
-  
-  function stopAutoPlay() {
-    if (autoPlayInterval) {
-      clearInterval(autoPlayInterval);
-      autoPlayInterval = null;
+
+  // ── FUNCIÓN CENTRAL DE ACTUALIZACIÓN DE DIAPOSITIVAS ──
+  function updateCarousel(targetIdx) {
+    // 1. Quitar estado activo al slide e indicador anterior
+    slides[currentIdx].classList.remove("active");
+    if (indicators[currentIdx]) {
+      indicators[currentIdx].classList.remove("active");
+    }
+
+    // Pausar video si la diapositiva saliente contenía uno
+    const currentVideo = slides[currentIdx].querySelector("video");
+    if (currentVideo) {
+      currentVideo.pause();
+    }
+
+    // Actualizar el índice al objetivo
+    currentIdx = targetIdx;
+
+    // 2. Añadir estado activo al nuevo slide e indicador coincidente
+    slides[currentIdx].classList.add("active");
+    if (indicators[currentIdx]) {
+      indicators[currentIdx].classList.add("active");
+    }
+
+    // Reproducir video si la nueva diapositiva activa contiene uno
+    const nextVideo = slides[currentIdx].querySelector("video");
+    if (nextVideo) {
+      nextVideo.currentTime = 0;
+      nextVideo.play().catch(err => console.log("Auto-play prevenido por navegador:", err));
+    }
+
+    // 3. Actualizar elementos de UI de Texto (Contador '01', '02'...)
+    if (currentSlideText) {
+      currentSlideText.textContent = String(currentIdx + 1).padStart(2, "0");
+    }
+
+    // 4. Actualizar barra de progreso azul superior de manera proporcional
+    if (progressFill) {
+      const progressPercent = ((currentIdx + 1) / totalSlides) * 100;
+      progressFill.style.width = `${progressPercent}%`;
     }
   }
-  
-  nextBtn.addEventListener('click', function() {
-    stopAutoPlay();
-    nextSlide();
-    startAutoPlay();
-  });
-  
-  prevBtn.addEventListener('click', function() {
-    stopAutoPlay();
-    prevSlide();
-    startAutoPlay();
-  });
-  
-  indicators.forEach(indicator => {
-    indicator.addEventListener('click', function() {
-      const index = parseInt(this.dataset.index);
-      if (index !== currentIndex) {
-        stopAutoPlay();
-        goToSlide(index);
-        startAutoPlay();
+
+  // ── EVENTOS DE CONTROL (BOTONES NAVEGADORES) ──
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      // Ciclo infinito circular hacia adelante
+      let nextIdx = currentIdx + 1;
+      if (nextIdx >= totalSlides) nextIdx = 0;
+      updateCarousel(nextIdx);
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      // Ciclo infinito circular hacia atrás
+      let prevIdx = currentIdx - 1;
+      if (prevIdx < 0) prevIdx = totalSlides - 1;
+      updateCarousel(prevIdx);
+    });
+  }
+
+  // ── EVENTOS PARA INDICADORES DIRECTOS (DOTS) ──
+  indicators.forEach((indicator) => {
+    indicator.addEventListener("click", (e) => {
+      const clickedIdx = parseInt(e.target.getAttribute("data-index"), 10);
+      if (!isNaN(clickedIdx) && clickedIdx !== currentIdx) {
+        updateCarousel(clickedIdx);
       }
     });
   });
-  
-  const carousel = document.querySelector('.carousel-wrapper');
-  carousel.addEventListener('mouseenter', stopAutoPlay);
-  carousel.addEventListener('mouseleave', startAutoPlay);
-  
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowRight') {
-      stopAutoPlay();
-      nextSlide();
-      startAutoPlay();
-    } else if (e.key === 'ArrowLeft') {
-      stopAutoPlay();
-      prevSlide();
-      startAutoPlay();
-    }
-  });
-  
-  setTimeout(() => {
-    progressFill.style.transition = `width ${AUTO_PLAY_DELAY}ms linear`;
-    progressFill.style.width = '100%';
-  }, 100);
-  
-  startAutoPlay();
+
+  // ── EJECUCIÓN INICIAL / ARRANQUE DE INTERFAZ ──
+  updateCarousel(0);
 });
