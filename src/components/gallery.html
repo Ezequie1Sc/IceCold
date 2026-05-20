@@ -1,31 +1,155 @@
 <section id="trabajos">
-  <div class="gallery-header">
-    <div>
-      <span class="section-label">Nuestros trabajos</span>
-      <h2 class="section-title" style="margin-bottom:0">Resultados que hablan</h2>
+  <div class="trabajos-container">
+    
+    <!-- HEADER -->
+    <div class="trabajos-header">
+      <h2 class="section-title">Nuestros <span class="accent">trabajos</span></h2>
+      <p class="section-desc">Descubre la calidad de nuestro servicio a través de proyectos reales.</p>
     </div>
-    <a href="https://wa.me/521XXXXXXXXXX" class="nav-cta">Ver más en WhatsApp</a>
-  </div>
-  <div class="gallery-grid">
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=700&q=80" alt="Instalación">
-      <div class="gallery-overlay"><span class="gallery-tag">Instalación residencial</span></div>
+
+    <!-- CARRUSEL VERTICAL -->
+    <div class="carousel-wrapper">
+      <div class="carousel-container" id="carouselContainer">
+        
+        <!-- SLIDE 1: Soldadura -->
+        <div class="carousel-slide active" data-index="0">
+          <div class="slide-media">
+            <video src="/src/assets/soldadura.mp4" autoplay muted loop playsinline></video>
+            <div class="media-gradient"></div>
+          </div>
+          <div class="slide-content">
+            <div class="slide-tag">🔧 Especializado</div>
+            <h3>Soldadura técnica</h3>
+            <p>Reparación profesional de tuberías y sistemas de refrigeración.</p>
+            <div class="slide-stats">
+              <span>⭐ 4.9</span>
+              <span>•</span>
+              <span>+120 proyectos</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2: Ventilador -->
+        <div class="carousel-slide" data-index="1">
+          <div class="slide-media">
+            <video src="/src/assets/ventilador.mp4" autoplay muted loop playsinline></video>
+            <div class="media-gradient"></div>
+          </div>
+          <div class="slide-content">
+            <div class="slide-tag">⚡ Ventilación</div>
+            <h3>Reparación de ventilador</h3>
+            <p>Mantenimiento y reparación de unidades interiores con precisión.</p>
+            <div class="slide-stats">
+              <span>⭐ 4.8</span>
+              <span>•</span>
+              <span>+85 proyectos</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3: Mantenimiento -->
+        <div class="carousel-slide" data-index="2">
+          <div class="slide-media">
+            <img src="/src/assets/rep3.jpg" alt="Mantenimiento">
+            <div class="media-gradient"></div>
+          </div>
+          <div class="slide-content">
+            <div class="slide-tag">🧹 Mantenimiento</div>
+            <h3>Limpieza profunda</h3>
+            <p>Mantenimiento preventivo para prolongar la vida de tus equipos.</p>
+            <div class="slide-stats">
+              <span>⭐ 5.0</span>
+              <span>•</span>
+              <span>+200 proyectos</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 4: Carga de gas -->
+        <div class="carousel-slide" data-index="3">
+          <div class="slide-media">
+            <img src="/src/assets/mant1.jpg" alt="Carga de gas">
+            <div class="media-gradient"></div>
+          </div>
+          <div class="slide-content">
+            <div class="slide-tag">💨 Carga de gas</div>
+            <h3>Recarga de refrigerante</h3>
+            <p>Servicio profesional de carga de gas para sistemas de aire.</p>
+            <div class="slide-stats">
+              <span>⭐ 4.9</span>
+              <span>•</span>
+              <span>+150 proyectos</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 5: Instalación -->
+        <div class="carousel-slide" data-index="4">
+          <div class="slide-media">
+            <img src="/src/assets/instalacion.jpg" alt="Instalación">
+            <div class="media-gradient"></div>
+          </div>
+          <div class="slide-content">
+            <div class="slide-tag">🏠 Instalación</div>
+            <h3>Unidad exterior</h3>
+            <p>Instalación profesional de equipos de aire acondicionado.</p>
+            <div class="slide-stats">
+              <span>⭐ 4.7</span>
+              <span>•</span>
+              <span>+95 proyectos</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CONTROLES -->
+      <div class="carousel-controls">
+        <button class="control-btn prev" id="prevBtn" aria-label="Anterior">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        
+        <div class="indicators-wrapper">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="indicators" id="indicators">
+            <button class="indicator active" data-index="0"></button>
+            <button class="indicator" data-index="1"></button>
+            <button class="indicator" data-index="2"></button>
+            <button class="indicator" data-index="3"></button>
+            <button class="indicator" data-index="4"></button>
+          </div>
+        </div>
+
+        <button class="control-btn next" id="nextBtn" aria-label="Siguiente">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- CONTADOR -->
+      <div class="slide-counter">
+        <span id="currentSlide">01</span>
+        <span class="counter-divider">/</span>
+        <span id="totalSlides">05</span>
+      </div>
+
     </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1504150558240-0b4fd8946624?w=400&q=80" alt="Mantenimiento">
-      <div class="gallery-overlay"><span class="gallery-tag">Mantenimiento</span></div>
+
+    <!-- CTA FOOTER -->
+    <div class="trabajos-footer">
+      <p>Contáctame</p>
+      <a href="https://wa.me/521XXXXXXXXXX" class="cta-whatsapp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#ffffff">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        WhatsApp
+      </a>
     </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Reparación">
-      <div class="gallery-overlay"><span class="gallery-tag">Reparación</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&q=80" alt="Comercial">
-      <div class="gallery-overlay"><span class="gallery-tag">Servicio comercial</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1635048424329-a9bfb146d7aa?w=400&q=80" alt="Instalación">
-      <div class="gallery-overlay"><span class="gallery-tag">Unidad exterior</span></div>
-    </div>
+
   </div>
 </section>
