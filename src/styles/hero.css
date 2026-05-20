@@ -1,0 +1,200 @@
+/* ── HERO ESCALADO ── */
+#hero {
+  position: relative;
+  min-height: 75vh; /* Aumentado de 65vh a 75vh */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 5% 2.5rem 5%;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* ── FONDO ── */
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  background: url('/src/assets/hero.jpg') center/cover no-repeat;
+  z-index: 0;
+}
+
+/* ── OVERLAY ── */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 20, 40, 0.5) 0%,
+    rgba(10, 20, 40, 0.75) 50%,
+    rgba(10, 20, 40, 0.9) 100%
+  );
+}
+
+/* ── CONTENIDO ── */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 750px; /* Un poco más ancho */
+}
+
+/* ── BADGE ── */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+
+/* ── TÍTULO ── */
+#hero h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.6rem, 5vw, 3.6rem); /* Más grande */
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.12;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+#hero h1 .accent {
+  color: #38bdf8;
+}
+
+/* ── DESCRIPCIÓN ── */
+.hero-desc {
+  color: #cbd5e1;
+  font-size: 1.05rem; /* Más grande */
+  line-height: 1.7;
+  margin-bottom: 1.8rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── BOTONES ── */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+  background: #25d366;
+  color: white;
+  padding: 0.85rem 1.8rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s;
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-hero-outline {
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.85rem 1.8rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn-hero-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ── CARRUSEL (se mantiene pequeño) ── */
+.trust-bar-carousel {
+  background: #1B2539;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.6rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.trust-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  animation: scrollTrust 25s linear infinite;
+}
+
+.trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 0 1rem;
+}
+
+.trust-item i {
+  width: 14px;
+  height: 14px;
+}
+
+.trust-icon {
+  color: #38bdf8;
+}
+
+.trust-divider {
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
+
+@keyframes scrollTrust {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.trust-bar-carousel:hover .trust-track {
+  animation-play-state: paused;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  #hero {
+    min-height: 70vh;
+    padding: 2.5rem 5% 2rem 5%;
+  }
+  #hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-hero-primary,
+  .btn-hero-outline {
+    width: 100%;
+    justify-content: center;
+  }
+  .trust-item {
+    font-size: 0.65rem;
+    padding: 0 0.6rem;
+  }
+}

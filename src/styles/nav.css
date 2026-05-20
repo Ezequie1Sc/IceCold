@@ -1,0 +1,270 @@
+/* ── NAVBAR ── */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0 5%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 20, 40, 0.75);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── LOGO ── */
+.nav-logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  width: 30px;
+  height: 30px;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+}
+
+.logo-icon i {
+  width: 16px;
+  height: 16px;
+}
+
+.logo-accent {
+  color: #38bdf8;
+}
+
+/* ── LINKS DESKTOP ── */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  margin-left: auto; /* Empuja los links hacia la derecha */
+  margin-right: 3rem; /* Aumentado de 2rem a 3rem para más espacio */
+}
+
+/* ── BOTÓN WHATSAPP ── */
+.nav-end {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-cta {
+  background: #25d366;
+  color: #ffffff;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 12px rgba(37, 211, 102, 0.25);
+  /* Opcional: si quieres más margen a la derecha del botón */
+  margin-right: 0.5rem; 
+}
+
+.nav-cta:hover {
+  background: #1ebf5e;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 18px rgba(37, 211, 102, 0.35);
+}
+
+.nav-cta svg {
+  flex-shrink: 0;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: #38bdf8;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #38bdf8;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ── BOTÓN WHATSAPP ── */
+.nav-end {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-cta {
+  background: #25d366;
+  color: #ffffff;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 12px rgba(37, 211, 102, 0.25);
+}
+
+.nav-cta:hover {
+  background: #1ebf5e;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 18px rgba(37, 211, 102, 0.35);
+}
+
+.nav-cta svg {
+  flex-shrink: 0;
+}
+
+/* ── HAMBURGER ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  gap: 4px;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ── MENÚ MÓVIL ── */
+.nav-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 56px);
+  background: rgba(10, 20, 40, 0.98);
+  backdrop-filter: blur(12px);
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  gap: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.nav-mobile-menu.open {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.nav-mobile-menu ul a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-mobile-menu ul a:hover {
+  color: #38bdf8;
+}
+
+.nav-mobile-menu .nav-cta.mobile {
+  width: 100%;
+  justify-content: center;
+  padding: 0.7rem;
+  font-size: 0.95rem;
+}
+
+/* ── HAMBURGER ANIMATION ── */
+.nav-hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+.nav-hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .nav-end .nav-cta:not(.mobile) {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+}
+
+/* ── SCROLL EFFECT ── */
+.site-header.scrolled {
+  background: rgba(10, 20, 40, 0.95);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}

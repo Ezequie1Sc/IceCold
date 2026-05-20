@@ -1,0 +1,30 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  background: var(--navy);
+  padding: 0.55rem 5%;
+  display: flex; justify-content: flex-end; align-items: center;
+  gap: 2rem;
+}
+.topbar a {
+  color: var(--gray-200); font-size: 0.8rem;
+  text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+  transition: color 0.2s;
+}
+.topbar a:hover { color: var(--sky); }
+.topbar-icon { width: 14px; height: 14px; }
+
+@media (max-width: 640px) {
+  .topbar { display: none; }
+}

@@ -1,0 +1,49 @@
+#trabajos {
+  padding: 6rem 5%;
+  background: var(--white);
+}
+.gallery-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 230px 230px;
+  gap: 12px;
+}
+.gallery-item {
+  border-radius: var(--radius-lg); overflow: hidden;
+  position: relative; background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+}
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.4s ease, opacity 0.3s;
+  opacity: 0.92;
+}
+.gallery-item:hover img { transform: scale(1.04); opacity: 1; }
+.gallery-item:first-child { grid-row: span 2; }
+.gallery-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,31,60,0.55) 0%, transparent 55%);
+  opacity: 0; transition: opacity 0.3s;
+  display: flex; align-items: flex-end; padding: 1.2rem;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-tag {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem; font-weight: 700;
+  color: var(--white); background: rgba(21,101,192,0.8);
+  padding: 0.3rem 0.8rem; border-radius: 6px;
+  backdrop-filter: blur(4px);
+}
+
+@media (max-width: 960px) {
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .gallery-item:first-child { grid-row: span 1; }
+}
+@media (max-width: 640px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
