@@ -4,7 +4,7 @@
 
 #servicios {
   padding: 6rem 6% 5rem;
-  background: #F3F0E9;
+  background: #ECF3FE;  /* CAMBIADO DE #F3F0E9 A #EBF3FE */
   position: relative;
 }
 
@@ -117,8 +117,7 @@
   gap: 0.7rem;
 }
 
-/* Icono cuadrado redondeado
-   FIX LUCIDE: apuntar a > svg, no a "i" ni "i svg" */
+/* Icono cuadrado redondeado */
 .feature-icon {
   width: 46px;
   height: 46px;
@@ -214,7 +213,6 @@
   overflow: hidden;
   background: #e2e8f0;
   position: relative;
-  /* Altura mínima para no colapsar */
   min-height: 160px;
 }
 
@@ -231,7 +229,6 @@
   transform: scale(1.05);
 }
 
-/* Overlay sutil sobre la imagen inset */
 .feature-image::after {
   content: '';
   position: absolute;
@@ -250,9 +247,7 @@
   gap: 1.3rem;
 }
 
-/* ─────────────────────────────
-   TARJETA PEQUEÑA — imagen + icono centrado + contenido
-───────────────────────────── */
+/* ── TARJETA PEQUEÑA ── */
 .service-card-small {
   background: #ffffff;
   border-radius: 20px;
@@ -295,7 +290,6 @@
   background: linear-gradient(to top, rgba(0,0,0,0.32), transparent 55%);
 }
 
-/* Icono centrado flotante — FIX LUCIDE */
 .sc-icon-center {
   width: 52px;
   height: 52px;
@@ -308,7 +302,7 @@
   position: relative;
   z-index: 2;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.09);
-  border: 3px solid #F3F0E9;
+  border: 3px solid #EBF3FE;  /* CAMBIADO DE #F3F0E9 A #EBF3FE */
   color: #0284C7;
   flex-shrink: 0;
 }
