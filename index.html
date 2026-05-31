@@ -17,57 +17,282 @@
 <link rel="stylesheet" href="src/styles/products.css">
 <link rel="stylesheet" href="src/styles/contact.css">
 <link rel="stylesheet" href="src/styles/footer.css">
+
+<style>
+  /* ── CORRECCIÓN PARA MÓVIL ── */
+  @media (max-width: 768px) {
+    /* Forzar visibilidad de la ubicación */
+    .hero-location, 
+    .hero-ubicacion,
+    .location-badge,
+    .hero-badge,
+    .hero-location-badge {
+      display: flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      font-size: 0.75rem !important;
+      padding: 6px 14px !important;
+      margin-top: 10px !important;
+      white-space: nowrap !important;
+      background: rgba(255, 255, 255, 0.15) !important;
+      backdrop-filter: blur(4px) !important;
+      border-radius: 20px !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      color: #ffffff !important;
+    }
+    
+    /* Ajustar el hero para que no oculte elementos */
+    .hero-content {
+      padding-top: 10px !important;
+      padding-bottom: 20px !important;
+    }
+    
+    /* Ajustar el tamaño del texto de ubicación */
+    .hero-location span,
+    .hero-ubicacion span {
+      font-size: 0.7rem !important;
+    }
+    
+    /* Asegurar que el contenedor de ubicación no se oculte */
+    .hero-location-wrapper {
+      display: flex !important;
+      justify-content: center !important;
+      margin-top: 5px !important;
+    }
+  }
+</style>
 </head>
 <body>
 
 <!-- TOP BAR -->
 <div class="topbar">
-  <a href="tel:+521XXXXXXXXXX">
-    <i data-lucide="phone" class="topbar-icon"></i> (999) 000-0000
+  <a href="tel:+529991403113">
+    <i data-lucide="phone" class="topbar-icon"></i> +52 999 140 3113
   </a>
   <a href="mailto:contacto@climaspro.mx">
     <i data-lucide="mail" class="topbar-icon"></i> contacto@climaspro.mx
   </a>
   <a href="#">
-    <i data-lucide="clock" class="topbar-icon"></i> Lun – Sáb · 8am – 7pm
+    <i data-lucide="clock" class="topbar-icon"></i> Lunes a Domingo · 8am – 6pm
   </a>
 </div>
 
-<!-- COMPONENT: NAV -->
-<div data-component="nav"></div>
+<!-- NAVBAR -->
+<header class="site-header" id="site-header">
+  <nav class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <div class="logo-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20"/>
+          <path d="m4.93 4.93 14.14 14.14"/>
+          <path d="M2 12h20"/>
+          <path d="m4.93 19.07 14.14-14.14"/>
+          <path d="m8 2 4 4 4-4"/>
+          <path d="m8 22 4-4 4 4"/>
+          <path d="m2 8 4 4-4 4"/>
+          <path d="m22 8-4 4 4 4"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">Técnico Miguel Salazar</span>
+        <span class="logo-sub">Climatización Profesional</span>
+      </div>
+    </a>
 
-<!-- COMPONENT: HERO -->
+    <ul class="nav-links">
+      <li><a href="#hero">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#equipos">Equipos</a></li>
+      <li><a href="#trabajos">Trabajos</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <div class="nav-end">
+      <a href="https://wa.me/529991403113" class="nav-cta" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        WhatsApp
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- OVERLAY -->
+<div class="nav-drawer-overlay" id="nav-drawer-overlay"></div>
+
+<!-- DRAWER -->
+<div class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-header">
+    <div class="nav-drawer-logo">
+      <div class="drawer-logo-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20"/>
+          <path d="m4.93 4.93 14.14 14.14"/>
+          <path d="M2 12h20"/>
+          <path d="m4.93 19.07 14.14-14.14"/>
+          <path d="m8 2 4 4 4-4"/>
+          <path d="m8 22 4-4 4 4"/>
+          <path d="m2 8 4 4-4 4"/>
+          <path d="m22 8-4 4 4 4"/>
+        </svg>
+      </div>
+      <span class="drawer-logo-name">Técnico Miguel Salazar</span>
+    </div>
+    <button class="nav-drawer-close" id="nav-drawer-close" aria-label="Cerrar menú">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="nav-drawer-links">
+    <a href="#hero" data-scroll>
+      <span>Inicio</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </a>
+    <a href="#servicios" data-scroll>
+      <span>Servicios</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </a>
+    <a href="#equipos" data-scroll>
+      <span>Equipos</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </a>
+    <a href="#trabajos" data-scroll>
+      <span>Trabajos</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </a>
+    <a href="#nosotros" data-scroll>
+      <span>Nosotros</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </a>
+    <a href="#contacto" data-scroll>
+      <span>Contacto</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="nav-drawer-footer">
+    <span class="cta-label">Contáctame</span>
+    <a href="https://wa.me/529991403113" class="nav-cta drawer-cta" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#ffffff">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- HERO -->
 <div data-component="hero"></div>
 
-<!-- COMPONENT: SERVICES -->
+<!-- SERVICES -->
 <div data-component="services"></div>
 
-<!-- COMPONENT: PRODUCTS -->
+<!-- PRODUCTS -->
 <div data-component="products"></div>
 
-<!-- COMPONENT: GALLERY -->
+<!-- GALLERY -->
 <div data-component="gallery"></div>
 
-<!-- COMPONENT: NOSOTROS -->
+<!-- NOSOTROS -->
 <div data-component="nosotros"></div>
 
-<!-- COMPONENT: CONTACT -->
+<!-- CONTACT -->
 <div data-component="contact"></div>
 
-<!-- COMPONENT: FOOTER -->
+<!-- FOOTER -->
 <div data-component="footer"></div>
 
-<!--
-  ORDEN DE SCRIPTS — IMPORTANTE:
-  1. components.js  → inyecta el HTML de todos los componentes en el DOM
-  2. nav.js         → inicializa el menú hamburguesa (necesita que el nav ya esté en el DOM)
-  3. products.js    → lógica de productos
-  4. main.js        → lógica general
--->
+<!-- SCRIPTS -->
 <script src="src/js/components.js"></script>
-<script src="src/js/nav.js"></script>
 <script src="src/js/products.js"></script>
 <script src="src/js/main.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('nav-hamburger');
+    const drawer = document.getElementById('nav-drawer');
+    const overlay = document.getElementById('nav-drawer-overlay');
+    const closeBtn = document.getElementById('nav-drawer-close');
+    const header = document.getElementById('site-header');
+    
+    function openDrawer() {
+      drawer.classList.add('open');
+      overlay.classList.add('active');
+      hamburger.classList.add('active');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      overlay.classList.remove('active');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    
+    if (hamburger) hamburger.addEventListener('click', openDrawer);
+    if (overlay) overlay.addEventListener('click', closeDrawer);
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+    });
+    
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768 && drawer.classList.contains('open')) closeDrawer();
+    });
+    
+    if (header) {
+      window.addEventListener('scroll', function() {
+        header.classList.toggle('scrolled', window.scrollY > 30);
+      });
+    }
+    
+    document.querySelectorAll('.nav-links a[href^="#"], .nav-drawer-links a[href^="#"]')
+      .forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const id = this.getAttribute('href').slice(1);
+          const target = document.getElementById(id);
+          if (target) {
+            if (drawer.classList.contains('open')) {
+              closeDrawer();
+              setTimeout(() => {
+                const top = target.getBoundingClientRect().top + window.scrollY - 64;
+                window.scrollTo({ top, behavior: 'smooth' });
+              }, 300);
+            } else {
+              const top = target.getBoundingClientRect().top + window.scrollY - 64;
+              window.scrollTo({ top, behavior: 'smooth' });
+            }
+          }
+        });
+      });
+  });
+</script>
 
 </body>
 </html>

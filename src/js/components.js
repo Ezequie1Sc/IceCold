@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────
-//  components.js — v3
+//  components.js — CORRECCIÓN FINAL
 // ─────────────────────────────────────────────
 
 async function loadComponents() {
@@ -15,7 +15,7 @@ async function loadComponents() {
     footer:   'src/components/footer.html'
   };
 
-  const elements = document.querySelectorAll('[data-component]');
+  const elements = Array.from(document.querySelectorAll('[data-component]'));
 
   for (const el of elements) {
     const name = el.getAttribute('data-component');
@@ -26,41 +26,52 @@ async function loadComponents() {
       const response = await fetch(url);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const html = await response.text();
-      el.outerHTML = html;
+
+      const template = document.createElement('template');
+      template.innerHTML = html.trim();
+
+      const parent = el.parentNode;
+      Array.from(template.content.childNodes).forEach(node => {
+        parent.insertBefore(node.cloneNode(true), el);
+      });
+
+      el.remove();
+
     } catch (err) {
       console.warn(`[components] Error cargando: ${name}`, err);
     }
   }
 
-  // Lucide icons
   if (typeof lucide !== 'undefined') lucide.createIcons();
 
-  // ✅ Inicializar nav DESPUÉS de que todos los componentes estén en el DOM
-  // setTimeout(0) cede el control al browser para que procese el HTML insertado
-  setTimeout(initNav, 0);
+  // ESPERAR A QUE TODO EL DOM ESTÉ LISTO
+  setTimeout(initNav, 200);
 }
 
 // ─────────────────────────────────────────────
-//  initNav
+//  initNav (INCLUIDO AQUÍ PARA EVITAR DUPLICADOS)
 // ─────────────────────────────────────────────
 function initNav() {
+  console.log('🔍 Iniciando NAV...');
+  
   const hamburger = document.getElementById('nav-hamburger');
   const drawer    = document.getElementById('nav-drawer');
   const overlay   = document.getElementById('nav-drawer-overlay');
   const closeBtn  = document.getElementById('nav-drawer-close');
 
-  // Debug: ver qué encuentra
-  console.log('[initNav] hamburger:', hamburger);
-  console.log('[initNav] drawer:', drawer);
-  console.log('[initNav] overlay:', overlay);
-  console.log('[initNav] closeBtn:', closeBtn);
+  // DEBUG: Verificar si los elementos existen
+  console.log('✅ Hamburger:', hamburger);
+  console.log('✅ Drawer:', drawer);
+  console.log('✅ Overlay:', overlay);
+  console.log('✅ CloseBtn:', closeBtn);
 
-  if (!hamburger) { console.error('[initNav] ❌ No se encontró #nav-hamburger'); return; }
-  if (!drawer)    { console.error('[initNav] ❌ No se encontró #nav-drawer');    return; }
-  if (!overlay)   { console.error('[initNav] ❌ No se encontró #nav-drawer-overlay'); return; }
+  if (!hamburger || !drawer || !overlay) {
+    console.error('❌ Elementos del nav NO encontrados');
+    return;
+  }
 
-  // ── Funciones open/close ──
   function openDrawer() {
+    console.log('🟢 Abriendo drawer');
     drawer.classList.add('open');
     overlay.classList.add('active');
     hamburger.classList.add('active');
@@ -69,6 +80,7 @@ function initNav() {
   }
 
   function closeDrawer() {
+    console.log('🔴 Cerrando drawer');
     drawer.classList.remove('open');
     overlay.classList.remove('active');
     hamburger.classList.remove('active');
@@ -76,15 +88,11 @@ function initNav() {
     document.body.style.overflow = '';
   }
 
-  // ── Listeners ──
   hamburger.addEventListener('click', openDrawer);
   overlay.addEventListener('click', closeDrawer);
 
   if (closeBtn) {
     closeBtn.addEventListener('click', closeDrawer);
-    console.log('[initNav] ✅ closeBtn listener adjuntado');
-  } else {
-    console.error('[initNav] ❌ No se encontró #nav-drawer-close');
   }
 
   document.addEventListener('keydown', e => {
@@ -95,17 +103,16 @@ function initNav() {
     if (window.innerWidth > 768) closeDrawer();
   });
 
-  // ── Scroll suave ──
+  // Scroll suave
   const NAV_HEIGHT = 64;
 
   function smoothScrollTo(id) {
-    const el = document.getElementById(id);
-    if (!el) { console.warn('[scroll] Sección no encontrada:', id); return; }
-    const top = el.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
+    const target = document.getElementById(id);
+    if (!target) return;
+    const top = target.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
     window.scrollTo({ top, behavior: 'smooth' });
   }
 
-  // Todos los links ancla: desktop + drawer
   document.querySelectorAll('.nav-links a[href^="#"], .nav-drawer-links a[href^="#"]')
     .forEach(link => {
       link.addEventListener('click', e => {
@@ -120,7 +127,6 @@ function initNav() {
       });
     });
 
-  // ── Scroll effect en header ──
   const header = document.getElementById('site-header');
   if (header) {
     window.addEventListener('scroll', () => {
@@ -128,7 +134,7 @@ function initNav() {
     }, { passive: true });
   }
 
-  console.log('[initNav] ✅ Todo inicializado correctamente');
+  console.log('✅ NAV inicializado correctamente');
 }
 
 document.addEventListener('DOMContentLoaded', loadComponents);
