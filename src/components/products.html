@@ -2,88 +2,131 @@
   <div class="products-header">
     <div>
       <span class="section-label">Venta de equipos</span>
-      <h2 class="section-title">Aires acondicionados<br><span class="line2">Mirage LiFE 12+</span></h2>
+      <h2 class="section-title">
+        <span class="text-black">Mirage LiFE 12+</span>
+        <span class="text-blue">Solo Frío · 1 TR</span>
+      </h2>
     </div>
-    <a href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20comprar%20un%20aire%20acondicionado%20Mirage" class="nav-cta">Ver disponibilidad →</a>
   </div>
 
-  <div class="product-single">
-    <div class="product-single-img">
-      <img src="/src/assets/vent1.jpg" alt="Mirage LiFE 12+">
-      <span class="product-badge-featured">Más vendido</span>
-    </div>
+  <!-- PRODUCTO ÚNICO ESTILO MERCADO LIBRE -->
+  <div class="product-ml-container">
     
-    <div class="product-single-body">
-      <div class="product-single-brand">Mirage</div>
-      <div class="product-single-name">LiFE 12+</div>
-      <div class="product-single-tagline">Certificados con la máxima eficiencia mundial</div>
+    <!-- COLUMNA IZQUIERDA: CARRUSEL DE IMÁGENES -->
+    <div class="product-ml-gallery">
+      <div class="product-ml-main-image" id="mainImageContainer">
+        <img id="mainImage" src="/src/assets/vent.jpg" alt="Mirage LiFE 12+">
+        
+        <!-- BADGE OFERTA ESPECIAL -->
+        <div class="badge-oferta-especial">
+          <span class="badge-oferta-icon">🔥</span>
+          <span class="badge-oferta-text">OFERTA ESPECIAL</span>
+        </div>
+      </div>
       
-      <div class="product-single-specs">
-        <div class="spec-item">
-          <div class="spec-icon"><i data-lucide="zap"></i></div>
-          <div class="spec-text">
-            <span class="spec-number">30%</span>
-            <span class="spec-label">Mayor ahorro de electricidad</span>
+      <div class="product-ml-thumbnails">
+        <button class="thumb-btn active" data-img="/src/assets/vent1.jpg">
+          <img src="/src/assets/vent1.jpg" alt="Vista frontal">
+        </button>
+        <button class="thumb-btn" data-img="/src/assets/ven0.jpg">
+          <img src="/src/assets/ven0.jpg" alt="Vista lateral">
+        </button>
+        <button class="thumb-btn" data-img="/src/assets/ven.jpg">
+          <img src="/src/assets/ven.jpg" alt="Vista trasera">
+        </button>
+      </div>
+    </div>
+
+    <!-- COLUMNA DERECHA: INFORMACIÓN -->
+    <div class="product-ml-info">
+      
+      <!-- Marca y modelo -->
+      <div class="product-ml-brand-row">
+        <span class="product-ml-brand">Mirage</span>
+        <span class="product-ml-model">LiFE 12+</span>
+      </div>
+      
+      <h1 class="product-ml-title">Aire Acondicionado Mirage LiFE 12+</h1>
+      
+      <div class="product-ml-tagline">
+        Certificado con la máxima eficiencia mundial · Solo Frío
+      </div>
+      
+      <!-- Especificaciones destacadas -->
+      <div class="product-ml-specs-grid">
+        <div class="spec-item-ml">
+          <i data-lucide="zap" class="spec-icon-ml"></i>
+          <div>
+            <span class="spec-number-ml">30%</span>
+            <span class="spec-label-ml">Mayor ahorro de electricidad</span>
           </div>
         </div>
-        <div class="spec-item">
-          <div class="spec-icon"><i data-lucide="thermometer"></i></div>
-          <div class="spec-text">
-            <span class="spec-number">30%</span>
-            <span class="spec-label">Más confort y enfriamiento</span>
+        <div class="spec-item-ml">
+          <i data-lucide="thermometer" class="spec-icon-ml"></i>
+          <div>
+            <span class="spec-number-ml">30%</span>
+            <span class="spec-label-ml">Más confort y enfriamiento</span>
           </div>
         </div>
-        <div class="spec-item">
-          <div class="spec-icon"><i data-lucide="cpu"></i></div>
-          <div class="spec-text">
-            <span class="spec-number">50%</span>
-            <span class="spec-label">Más optimizado</span>
-          </div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-icon"><i data-lucide="shield-check"></i></div>
-          <div class="spec-text">
-            <span class="spec-number">5 años</span>
-            <span class="spec-label">Garantía en compresor</span>
+        <div class="spec-item-ml">
+          <i data-lucide="cpu" class="spec-icon-ml"></i>
+          <div>
+            <span class="spec-number-ml">50%</span>
+            <span class="spec-label-ml">Más optimizado</span>
           </div>
         </div>
       </div>
 
-      <div class="product-single-models">
-        <h4>Capacidades disponibles:</h4>
-        <div class="model-tags">
-          <span class="model-tag">1 TR · 12,000 BTU</span>
-          <span class="model-tag">1.5 TR · 18,000 BTU</span>
-          <span class="model-tag">2 TR · 24,000 BTU</span>
+      <!-- Detalles técnicos -->
+      <div class="product-ml-details">
+        <div class="detail-row">
+          <span class="detail-label">Modelo:</span>
+          <span class="detail-value">ELF1P12T / 12K</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Capacidad:</span>
+          <span class="detail-value">1 TR · 12,000 BTU</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Voltaje:</span>
+          <span class="detail-value">230V / 60Hz</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Tipo:</span>
+          <span class="detail-value">Solo Frío</span>
         </div>
       </div>
 
-      <div class="product-single-footer">
-        <div class="product-single-cta">
-          <div class="cta-text">
-            <span class="cta-label">Instalación incluida</span>
-            <span class="cta-sub">Sin costo adicional · Solo frío</span>
-          </div>
-          <a href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20comprar%20un%20aire%20acondicionado%20Mirage%20LiFE%2012%2B" class="btn-cotizar">
-            <span class="btn-wapp-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#ffffff">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
-            </span>
-            <span>Contáctame</span>
-          </a>
-        </div>
+      <!-- Características adicionales -->
+      <div class="product-ml-features">
+        <h4>Características destacadas</h4>
+        <ul>
+          <li><i data-lucide="check-circle" class="check-icon"></i> Sistema Inverter de alta eficiencia</li>
+          <li><i data-lucide="check-circle" class="check-icon"></i> Filtro de aire de alta densidad</li>
+          <li><i data-lucide="check-circle" class="check-icon"></i> Modo sleep para ahorro nocturno</li>
+          <li><i data-lucide="check-circle" class="check-icon"></i> Control remoto con pantalla LCD</li>
+        </ul>
+      </div>
+
+      <!-- Botón de WhatsApp -->
+      <div class="product-ml-cta-container">
+        <a href="https://wa.me/529991403113?text=Hola%2C%20quiero%20comprar%20un%20aire%20acondicionado%20Mirage%20LiFE%2012%2B%20(ELF1P12T%20-%2012%2C000%20BTU)" class="btn-ml-whatsapp" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#ffffff">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          <span>Comprar ahora</span>
+        </a>
       </div>
     </div>
   </div>
 
+  <!-- NOTA INFORMATIVA -->
   <div class="products-note">
     <i data-lucide="info"></i>
     <p>
-      <strong>¿Tienes dudas sobre qué capacidad necesitas?</strong>
-      Te asesoramos gratis. Solo cuéntanos el tamaño de tu espacio y uso que le darás, y te recomendamos la mejor opción.
-      <strong>Todos los equipos incluyen instalación básica con materiales estándar.</strong>
+      <strong>¿Tienes dudas sobre este equipo?</strong>
+      Te asesoramos gratis. Solo cuéntanos el tamaño de tu espacio y uso que le darás, y te confirmamos si es la mejor opción.
     </p>
-    <a href="https://wa.me/521XXXXXXXXXX?text=Hola,%20necesito%20asesoría%20para%20elegir%20un%20aire%20acondicionado%20Mirage" class="btn-cotizar" style="flex-shrink:0">Asesoría gratis →</a>
+    <a href="https://wa.me/529991403113?text=Hola,%20necesito%20asesoría%20para%20el%20Mirage%20LiFE%2012+" class="btn-ml-whatsapp" style="flex-shrink:0; padding: 0.7rem 1.4rem;" target="_blank">Asesoría gratis →</a>
   </div>
 </section>
