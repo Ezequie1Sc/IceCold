@@ -1,6 +1,6 @@
 /* ── SECCIÓN NOSOTROS (FONDO DIFERENCIADO) ── */
 #nosotros {
-  background: F8FAFC;
+  background: #F8FAFC;
   border-top: 1px solid #dbeafe;
   border-bottom: 1px solid #dbeafe;
   padding: 4rem 5%;
@@ -29,38 +29,89 @@
   object-fit: cover;
   display: block;
   opacity: 0.95;
+  transition: transform 0.6s ease;
 }
 
-/* ── TARJETA DE EXPERIENCIA (AHORA AZUL) ── */
+.why-img-wrap:hover img {
+  transform: scale(1.05);
+}
+
+/* ── TARJETA DE EXPERIENCIA (AZUL CON ANIMACIÓN) ── */
 .why-float-card {
   position: absolute;
   bottom: -1rem;
   right: -1rem;
-  background: #0284C7; /* AZUL en lugar de negro */
+  background: #0284C7;
   color: #ffffff;
   border-radius: 16px;
   padding: 1rem 1.3rem;
   box-shadow: 0 15px 30px rgba(2, 132, 199, 0.3);
   min-width: 160px;
+  animation: float-card 3s ease-in-out infinite;
+}
+
+@keyframes float-card {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .wfc-num {
   font-family: 'Outfit', sans-serif;
   font-size: 1.8rem;
   font-weight: 800;
-  color: #ffffff; /* BLANCO */
+  color: #ffffff;
   line-height: 1;
 }
 
 .wfc-label {
   font-size: 0.75rem;
-  color: #ffffff; /* BLANCO en lugar de gris */
+  color: #ffffff;
   margin-top: 0.2rem;
 }
 
 /* ── PARTE DERECHA ── */
 .why-right .section-sub {
   margin-bottom: 1.5rem;
+}
+
+/* ── TÍTULO CON AZUL ── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #0284C7;
+  margin-bottom: 0.5rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 22px;
+  height: 2px;
+  background: #0284C7;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: #0c1a2e;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.1;
+}
+
+.section-title .accent {
+  color: #0284C7;
 }
 
 .why-features {
@@ -78,12 +129,13 @@
   background: #ffffff;
   border: 1px solid #dbeafe;
   border-radius: 12px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: all 0.3s ease;
 }
 
 .why-feat:hover {
   border-color: #0284C7;
   box-shadow: 0 6px 15px rgba(2, 132, 199, 0.08);
+  transform: translateX(8px);
 }
 
 .feat-icon {
@@ -96,6 +148,11 @@
   justify-content: center;
   flex-shrink: 0;
   color: #0284C7;
+  transition: transform 0.3s ease;
+}
+
+.why-feat:hover .feat-icon {
+  transform: scale(1.1);
 }
 
 .feat-icon i {
@@ -124,7 +181,7 @@
   padding: 1.5rem;
   border: 2px solid #dbeafe;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .cert-large:hover {
@@ -148,6 +205,16 @@
   width: 28px;
   height: 28px;
   color: #0284C7;
+  animation: pulse-icon 2s ease-in-out infinite;
+}
+
+@keyframes pulse-icon {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 .cert-large-body {
@@ -169,6 +236,11 @@
   height: auto;
   display: block;
   object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.cert-large:hover .cert-large-image img {
+  transform: scale(1.05);
 }
 
 .cert-large-info {
@@ -248,5 +320,9 @@
   
   .cert-large-name {
     font-size: 1.2rem;
+  }
+  
+  .why-feat:hover {
+    transform: translateX(4px);
   }
 }
