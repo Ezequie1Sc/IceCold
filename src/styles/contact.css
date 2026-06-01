@@ -1,6 +1,6 @@
 /* ── SECCIÓN CONTACTO (FONDO AZUL MÁS BAJO #0369a1) ── */
 #contacto {
-  background: #0369A1; /* Azul más bajo pero que combina perfectamente */
+  background: #0369A1;
   padding: 6rem 5%;
   position: relative;
   overflow: hidden;
@@ -39,11 +39,11 @@
 }
 
 .contact-left h2 .accent {
-  color: #7dd3fc; /* Azul claro para contraste */
+  color: #7dd3fc;
 }
 
 .contact-left p {
-  color: #b8d4e8; /* Azul muy claro */
+  color: #b8d4e8;
   font-size: 0.95rem;
   line-height: 1.75;
   margin-bottom: 2rem;
@@ -110,7 +110,6 @@
   gap: 0.9rem;
 }
 
-/* Botón WhatsApp con logo original SVG */
 .btn-big-wapp {
   display: flex;
   align-items: center;
@@ -159,7 +158,6 @@
   opacity: 0.75;
 }
 
-/* Botón llamada */
 .btn-big-call {
   display: flex;
   align-items: center;
