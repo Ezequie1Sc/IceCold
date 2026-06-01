@@ -165,7 +165,7 @@
   </div>
 
   <!-- NOTA INFORMATIVA -->
-  <div class="products-note">
+  < class="products-note">
     <i data-lucide="info"></i>
     <p>
       <strong>¿Tienes dudas sobre qué capacidad necesitas?</strong>
@@ -177,14 +177,24 @@
       target="_blank">
       Asesoría gratis →
     </a>
-  </div>
-  <!-- NOTA INFORMATIVA -->
-  <div class="products-note">
-    <i data-lucide="info"></i>
-    <p>
-      <strong>¿Tienes dudas sobre qué capacidad necesitas?</strong>
-      Te asesoramos gratis. Solo cuéntanos el tamaño de tu espacio y uso que le darás, y te recomendamos la mejor opción.
-    </p>
-    <a href="https://wa.me/529991403113?text=Hola,%20necesito%20asesoría%20para%20elegir%20la%20capacidad%20de%20un%20Mirage%20LiFE" class="btn-ml-whatsapp" style="flex-shrink:0; padding: 0.7rem 1.4rem;" target="_blank">Asesoría gratis →</a>
-  </div>
+  <!-- BOTÓN DE WHATSAPP DE RESPALDO -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      const container = document.querySelector('.product-ml-cta-container');
+      if (container) {
+        // Si el botón no existe, crearlo
+        if (!container.querySelector('.btn-ml-whatsapp')) {
+          const btn = document.createElement('a');
+          btn.href = 'https://wa.me/529991403113?text=Hola%2C%20quiero%20pedir%20un%20aire%20acondicionado%20Mirage%20LiFE%201%20TR%20(ELF1P12T%20-%2012%2C000%20BTU)';
+          btn.className = 'btn-ml-whatsapp';
+          btn.target = '_blank';
+          btn.innerHTML = '<span class="btn-wapp-text">📱 COMPRAR AHORA</span>';
+          container.appendChild(btn);
+          console.log('✅ Botón de WhatsApp agregado manualmente');
+        }
+      }
+    }, 2000);
+  });
+</script>
 </section>
