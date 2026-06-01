@@ -147,7 +147,8 @@
           <li><i data-lucide="check-circle" class="check-icon"></i> Control remoto con pantalla LCD</li>
         </ul>
       </div>
-      <!-- Botón principal COMPRAR -->
+
+      <!-- BOTÓN PRINCIPAL COMPRAR -->
       <div class="product-ml-cta-container">
         <a 
           href="https://wa.me/529991403113?text=Hola%2C%20quiero%20pedir%20un%20aire%20acondicionado%20Mirage%20LiFE%201%20TR%20(ELF1P12T%20-%2012%2C000%20BTU)" 
@@ -164,8 +165,8 @@
     </div>
   </div>
 
-  <!-- NOTA INFORMATIVA -->
-  < class="products-note">
+  <!-- NOTA INFORMATIVA CON BOTÓN DE ASESORÍA -->
+  <div class="products-note">
     <i data-lucide="info"></i>
     <p>
       <strong>¿Tienes dudas sobre qué capacidad necesitas?</strong>
@@ -177,24 +178,26 @@
       target="_blank">
       Asesoría gratis →
     </a>
+  </div>
+
   <!-- BOTÓN DE WHATSAPP DE RESPALDO -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-      const container = document.querySelector('.product-ml-cta-container');
-      if (container) {
-        // Si el botón no existe, crearlo
-        if (!container.querySelector('.btn-ml-whatsapp')) {
-          const btn = document.createElement('a');
-          btn.href = 'https://wa.me/529991403113?text=Hola%2C%20quiero%20pedir%20un%20aire%20acondicionado%20Mirage%20LiFE%201%20TR%20(ELF1P12T%20-%2012%2C000%20BTU)';
-          btn.className = 'btn-ml-whatsapp';
-          btn.target = '_blank';
-          btn.innerHTML = '<span class="btn-wapp-text">📱 COMPRAR AHORA</span>';
-          container.appendChild(btn);
-          console.log('✅ Botón de WhatsApp agregado manualmente');
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        const container = document.querySelector('.product-ml-cta-container');
+        if (container) {
+          // Si el botón no existe, crearlo
+          if (!container.querySelector('.btn-ml-whatsapp')) {
+            const btn = document.createElement('a');
+            btn.href = 'https://wa.me/529991403113?text=Hola%2C%20quiero%20pedir%20un%20aire%20acondicionado%20Mirage%20LiFE%201%20TR%20(ELF1P12T%20-%2012%2C000%20BTU)';
+            btn.className = 'btn-ml-whatsapp';
+            btn.target = '_blank';
+            btn.innerHTML = '<span class="btn-wapp-text">📱 COMPRAR AHORA</span>';
+            container.appendChild(btn);
+            console.log('✅ Botón de WhatsApp agregado manualmente');
+          }
         }
-      }
-    }, 2000);
-  });
-</script>
+      }, 2000);
+    });
+  </script>
 </section>
