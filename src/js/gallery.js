@@ -1,127 +1,159 @@
-// ── PRODUCTS.JS ──
+// ── GALLERY.JS ──
 
 document.addEventListener('DOMContentLoaded', function() {
   
-  // ── GALERÍA DE IMÁGENES ──
-  function initGallery() {
-    const mainImage = document.getElementById('mainImage');
-    const thumbBtns = document.querySelectorAll('.thumb-btn');
+  // ── CARRUSEL DE TRABAJOS ──
+  function initCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressFill = document.getElementById('progressFill');
+    const currentSlideText = document.getElementById('currentSlide');
+    const totalSlidesText = document.getElementById('totalSlides');
     
-    if (mainImage && thumbBtns.length > 0) {
-      thumbBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-          const imgSrc = this.getAttribute('data-img');
-          if (imgSrc) {
-            mainImage.src = imgSrc;
-            
-            // Actualizar clase active
-            thumbBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-          }
-        });
-      });
-      console.log('✅ Galería de imágenes inicializada');
-      return true;
-    } else {
-      console.log('⏳ Esperando que la galería de productos se cargue...');
+    // Verificar si los elementos existen
+    if (!slides.length || !indicators.length) {
+      console.log('⏳ Esperando que el carrusel se cargue...');
       return false;
     }
+    
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    
+    // Inicializar contador
+    if (totalSlidesText) {
+      totalSlidesText.textContent = String(totalSlides).padStart(2, '0');
+    }
+    
+    function updateCarousel(index) {
+      // Remover clase active del slide actual
+      slides[currentIndex].classList.remove('active');
+      indicators[currentIndex].classList.remove('active');
+      
+      // Pausar video si existe
+      const currentVideo = slides[currentIndex].querySelector('video');
+      if (currentVideo) {
+        currentVideo.pause();
+      }
+      
+      currentIndex = index;
+      
+      // Activar nuevo slide
+      slides[currentIndex].classList.add('active');
+      indicators[currentIndex].classList.add('active');
+      
+      // Reproducir video si existe
+      const newVideo = slides[currentIndex].querySelector('video');
+      if (newVideo) {
+        newVideo.currentTime = 0;
+        newVideo.play().catch(() => {});
+      }
+      
+      // Actualizar contador
+      if (currentSlideText) {
+        currentSlideText.textContent = String(currentIndex + 1).padStart(2, '0');
+      }
+      
+      // Actualizar barra de progreso
+      if (progressFill) {
+        const progress = ((currentIndex + 1) / totalSlides) * 100;
+        progressFill.style.width = `${progress}%`;
+      }
+    }
+    
+    // Event Listeners
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function() {
+        const nextIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel(nextIndex);
+      });
+    }
+    
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function() {
+        const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel(prevIndex);
+      });
+    }
+    
+    indicators.forEach(indicator => {
+      indicator.addEventListener('click', function() {
+        const index = parseInt(this.getAttribute('data-index'));
+        if (index !== currentIndex) {
+          updateCarousel(index);
+        }
+      });
+    });
+    
+    // Teclas de dirección
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight') {
+        const nextIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel(nextIndex);
+      } else if (e.key === 'ArrowLeft') {
+        const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel(prevIndex);
+      }
+    });
+    
+    // Inicializar
+    updateCarousel(0);
+    console.log('✅ Carrusel de trabajos inicializado');
+    return true;
+  }
+
+  // Intentar inicializar el carrusel inmediatamente
+  let carouselInitialized = initCarousel();
+  
+  // Si no se encontraron elementos, intentar de nuevo cada 500ms
+  if (!carouselInitialized) {
+    const checkInterval = setInterval(function() {
+      const slides = document.querySelectorAll('.carousel-slide');
+      if (slides.length > 0) {
+        clearInterval(checkInterval);
+        initCarousel();
+        console.log('✅ Carrusel inicializado después de esperar');
+      }
+    }, 500);
+    
+    // Timeout de seguridad después de 10 segundos
+    setTimeout(function() {
+      clearInterval(checkInterval);
+      console.log('⏱️ Timeout: No se pudo cargar el carrusel de trabajos');
+    }, 10000);
   }
 
   // ── SELECTOR DE CAPACIDAD ──
-  function initCapacitySelector() {
-    const capacityBtns = document.querySelectorAll('.capacity-btn');
-    const whatsappBtn = document.getElementById('whatsappBtn');
-    const whatsappText = document.getElementById('whatsappText');
-    
-    if (capacityBtns.length > 0 && whatsappBtn) {
-      capacityBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-          // Remover clase active de todos
-          capacityBtns.forEach(b => b.classList.remove('active'));
-          this.classList.add('active');
-          
-          // Obtener datos
-          const capacity = this.getAttribute('data-capacity');
-          const btu = this.getAttribute('data-btu');
-          const model = this.getAttribute('data-model');
-          
-          // Actualizar botón WhatsApp con mensaje personalizado
-          const text = 'Hola%2C%20quiero%20pedir%20un%20aire%20acondicionado%20Mirage%20LiFE%20' + encodeURIComponent(capacity) + '%20(' + model + '%20-%20' + encodeURIComponent(btu) + ')';
-          whatsappBtn.href = 'https://wa.me/529991403113?text=' + text;
-          whatsappText.textContent = 'Pedir ahora';
-        });
-      });
-      console.log('✅ Selector de capacidad inicializado');
-      return true;
-    } else {
-      console.log('⏳ Esperando que el selector de capacidad se cargue...');
-      return false;
-    }
-  }
-
-  // ── ACORDEÓN DE AYUDA ──
-  function initAccordion() {
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-    
-    if (accordionHeaders.length > 0) {
-      accordionHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-          const body = this.nextElementSibling;
-          const isOpen = this.getAttribute('aria-expanded') === 'true';
-          
-          // Cerrar todos los acordeones
-          accordionHeaders.forEach(h => {
-            h.setAttribute('aria-expanded', 'false');
-            h.nextElementSibling.classList.remove('open');
-          });
-          
-          // Abrir el actual si estaba cerrado
-          if (!isOpen) {
-            this.setAttribute('aria-expanded', 'true');
-            body.classList.add('open');
-          }
-        });
-      });
-      console.log('✅ Acordeón inicializado');
-      return true;
-    } else {
-      console.log('⏳ Esperando que el acordeón se cargue...');
-      return false;
-    }
-  }
-
-  // ── INICIALIZAR TODO ──
-  function initAll() {
-    // Intentar inicializar inmediatamente
-    let galleryReady = initGallery();
-    let selectorReady = initCapacitySelector();
-    let accordionReady = initAccordion();
-    
-    // Si falta algún elemento, esperar y reintentar
-    if (!galleryReady || !selectorReady || !accordionReady) {
-      const checkInterval = setInterval(function() {
-        const mainImage = document.getElementById('mainImage');
-        const capacityBtns = document.querySelectorAll('.capacity-btn');
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
+document.addEventListener('DOMContentLoaded', function() {
+  const capacityBtns = document.querySelectorAll('.capacity-btn');
+  const selectedModel = document.getElementById('selectedModel');
+  const selectedCapacity = document.getElementById('selectedCapacity');
+  const whatsappBtn = document.getElementById('whatsappBtn');
+  const whatsappText = document.getElementById('whatsappText');
+  
+  if (capacityBtns.length > 0) {
+    capacityBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Remover clase active de todos
+        capacityBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
         
-        if (mainImage && capacityBtns.length > 0 && accordionHeaders.length > 0) {
-          clearInterval(checkInterval);
-          initGallery();
-          initCapacitySelector();
-          initAccordion();
-          console.log('✅ Todo inicializado después de esperar');
-        }
-      }, 500);
-      
-      // Timeout de seguridad después de 10 segundos
-      setTimeout(function() {
-        clearInterval(checkInterval);
-        console.log('⏱️ Timeout: No se pudieron cargar todos los elementos');
-      }, 10000);
-    }
+        // Obtener datos
+        const capacity = this.getAttribute('data-capacity');
+        const btu = this.getAttribute('data-btu');
+        const model = this.getAttribute('data-model');
+        
+        // Actualizar detalles
+        selectedModel.textContent = model + ' / ' + btu;
+        selectedCapacity.textContent = capacity + ' · ' + btu;
+        
+        // Actualizar botón WhatsApp
+        const text = 'Hola%2C%20quiero%20comprar%20un%20aire%20acondicionado%20Mirage%20LiFE%20' + encodeURIComponent(capacity) + '%20(' + model + '%20-%20' + encodeURIComponent(btu) + ')';
+        whatsappBtn.href = 'https://wa.me/529991403113?text=' + text;
+        whatsappText.textContent = 'Comprar ' + capacity;
+      });
+    });
   }
-
-  // Iniciar
-  initAll();
+});
 });
