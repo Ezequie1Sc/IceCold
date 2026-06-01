@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ClimasPro — Soluciones en Climatización</title>
+<title>Técnico Miguel Salazar — Climatización Profesional</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -228,8 +228,8 @@
 <script src="src/js/products.js"></script>
 <script src="src/js/gallery.js"></script>
 <script src="src/js/main.js"></script>
-
 <script>
+  // ── NAVBAR ──
   document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('nav-hamburger');
     const drawer = document.getElementById('nav-drawer');
@@ -291,6 +291,64 @@
           }
         });
       });
+  });
+
+  // ── ANIMACIÓN DE NÚMEROS RÁPIDA ──
+  document.addEventListener('DOMContentLoaded', function() {
+    // Intentar inmediatamente
+    const statNumbers = document.querySelectorAll('.stat-num');
+    
+    if (statNumbers.length > 0) {
+      startNumberAnimation(statNumbers);
+    } else {
+      // Si no hay números, esperar un poco
+      setTimeout(function() {
+        const nums = document.querySelectorAll('.stat-num');
+        if (nums.length > 0) {
+          startNumberAnimation(nums);
+        }
+      }, 300);
+    }
+    
+    function startNumberAnimation(elements) {
+      elements.forEach(num => {
+        if (!num.classList.contains('animated')) {
+          num.classList.add('animated');
+          
+          const target = parseInt(num.getAttribute('data-target'));
+          const duration = 800; // 0.8 segundos (más rápido)
+          const startTime = performance.now();
+          const isPercentage = target === 100;
+          
+          function updateNumber(currentTime) {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            
+            // Easing más agresivo para terminar rápido
+            const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+            const currentValue = Math.floor(target * easeOutCubic);
+            
+            if (isPercentage) {
+              num.textContent = currentValue + '%';
+            } else {
+              num.textContent = '+' + currentValue;
+            }
+            
+            if (progress < 1) {
+              requestAnimationFrame(updateNumber);
+            } else {
+              if (isPercentage) {
+                num.textContent = target + '%';
+              } else {
+                num.textContent = '+' + target;
+              }
+            }
+          }
+          
+          requestAnimationFrame(updateNumber);
+        }
+      });
+    }
   });
 </script>
 

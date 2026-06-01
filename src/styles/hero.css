@@ -28,8 +28,8 @@ body {
 /* ── HERO COMPACTO ── */
 #hero {
   background: #ffffff;
-  padding: 2rem 6% 0; /* Reducido padding superior */
-  min-height: calc(100vh - 50px); /* Deja espacio exacto para el carrusel */
+  padding: 2rem 6% 0;
+  min-height: calc(100vh - 50px);
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -201,7 +201,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.8rem;
-  height: 420px; /* Reducido */
+  height: 420px;
   align-items: center;
   width: 100%;
 }
@@ -253,7 +253,7 @@ body {
   align-items: center;
   position: relative;
   z-index: 10;
-  flex-shrink: 0; /* No se encoge */
+  flex-shrink: 0;
 }
 
 .trust-track {
