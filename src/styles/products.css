@@ -149,6 +149,192 @@
   display: block;
 }
 
+/* ── SELECTOR DE CAPACIDAD ── */
+.capacity-selector {
+  margin-bottom: 1.2rem;
+}
+
+.capacity-selector h4 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #0c1a2e;
+  margin-bottom: 0.6rem;
+}
+
+.capacity-options {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.capacity-btn {
+  flex: 1;
+  min-width: 80px;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.capacity-btn:hover {
+  border-color: #94a3b8;
+  transform: translateY(-2px);
+}
+
+.capacity-btn.active {
+  border-color: #0284C7;
+  background: #f0f9ff;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.capacity-btn .cap-value {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #0c1a2e;
+}
+
+.capacity-btn .cap-sub {
+  font-size: 0.65rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.capacity-btn.active .cap-value {
+  color: #0284C7;
+}
+
+.capacity-btn.active .cap-sub {
+  color: #0284C7;
+}
+
+/* ── ACORDEÓN DE AYUDA - SIN RESALTADO ── */
+.help-accordion {
+  margin-bottom: 1.2rem;
+}
+
+.accordion-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: #f8fafc;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #0c1a2e;
+  transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+  background: #f1f5f9;
+}
+
+.accordion-header[aria-expanded="true"] .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-header-content {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* ── CÍRCULO CON ICONO DE PREGUNTA ── */
+.question-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0284C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.question-circle svg {
+  width: 16px;
+  height: 16px;
+  stroke: #ffffff;
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+  color: #0c1a2e;
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.accordion-body.open {
+  max-height: 300px;
+  padding: 1rem;
+}
+
+.guide-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.guide-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0.6rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.guide-cap {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #0284C7;
+}
+
+.guide-desc {
+  font-size: 0.7rem;
+  color: #64748b;
+}
+
+.guide-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: #475569;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 0.5rem;
+}
+
+.guide-footer i {
+  width: 14px;
+  height: 14px;
+  color: #0284C7;
+}
+
 /* ── INFORMACIÓN DEL PRODUCTO ── */
 .product-ml-info {
   display: flex;
@@ -235,37 +421,6 @@
   display: block;
 }
 
-/* ── DETALLES TÉCNICOS ── */
-.product-ml-details {
-  background: #f8fafc;
-  padding: 1.2rem 1.5rem;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
-}
-
-.detail-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.4rem 0;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.detail-row:last-child {
-  border-bottom: none;
-}
-
-.detail-label {
-  font-size: 0.85rem;
-  color: #64748b;
-  font-weight: 500;
-}
-
-.detail-value {
-  font-size: 0.85rem;
-  color: #0c1a2e;
-  font-weight: 600;
-}
-
 /* ── CARACTERÍSTICAS ── */
 .product-ml-features h4 {
   font-family: 'Outfit', sans-serif;
@@ -299,7 +454,7 @@
   flex-shrink: 0;
 }
 
-/* ── CTA BOTÓN ── */
+/* ── CTA BOTÓN WHATSAPP ── */
 .product-ml-cta-container {
   margin-top: 0.5rem;
   padding-top: 1.2rem;
@@ -311,56 +466,49 @@
 .btn-ml-whatsapp {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  justify-content: center;
+  gap: 0.75rem;
   background: #25d366;
   color: #ffffff;
-  padding: 0.8rem 2.5rem;
-  border-radius: 12px;
+  padding: 1rem 2.25rem;
+  border-radius: 14px;
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.05rem;
   text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+  min-width: 220px;
   white-space: nowrap;
-  transition: background 0.2s, transform 0.15s;
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  border: none;
+  width: 100%;
+  max-width: 320px;
 }
 
 .btn-ml-whatsapp:hover {
   background: #1ebf5e;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
 }
 
-/* ── NOTA ── */
-.products-note {
-  margin-top: 2.5rem;
-  padding: 1.2rem 1.5rem;
-  background: #e0f2fe;
-  border: 1px solid rgba(2, 132, 199, 0.15);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.products-note i {
-  width: 24px;
-  height: 24px;
-  color: #0284C7;
+.btn-ml-whatsapp svg {
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
 }
 
-.products-note p {
-  font-size: 0.875rem;
-  color: #0c1a2e;
-  flex: 1;
-  line-height: 1.6;
+/* Botón más pequeño para Asesoría */
+.btn-asesoria {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  min-width: auto;
+  max-width: none;
 }
 
-.products-note strong {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 700;
-}
+
+
+
+
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
@@ -377,6 +525,21 @@
 @media (max-width: 768px) {
   .product-ml-thumbnails {
     grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .capacity-options {
+    flex-direction: column;
+  }
+  
+  .capacity-btn {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.6rem 1rem;
+  }
+  
+  .btn-ml-whatsapp {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -397,16 +560,10 @@
     grid-template-columns: 1fr;
   }
   
-  .btn-ml-whatsapp {
-    width: 100%;
-    justify-content: center;
-  }
-  
   .product-ml-thumbnails {
     grid-template-columns: repeat(3, 1fr);
   }
   
-  /* Badge responsive */
   .badge-oferta-especial {
     top: 12px;
     left: 12px;

@@ -3,19 +3,19 @@
     <div>
       <span class="section-label">Venta de equipos</span>
       <h2 class="section-title">
-        <span class="text-black">Mirage LiFE 12+</span>
-        <span class="text-blue">Solo Frío · 1 TR</span>
+        <span class="text-black">Mirage LiFE</span>
+        <span class="text-blue">Elige tu capacidad</span>
       </h2>
     </div>
   </div>
 
-  <!-- PRODUCTO ÚNICO ESTILO MERCADO LIBRE -->
+  <!-- PRODUCTO ESTILO MERCADO LIBRE CON SELECTOR -->
   <div class="product-ml-container">
     
     <!-- COLUMNA IZQUIERDA: CARRUSEL DE IMÁGENES -->
     <div class="product-ml-gallery">
       <div class="product-ml-main-image" id="mainImageContainer">
-        <img id="mainImage" src="/src/assets/vent.jpg" alt="Mirage LiFE 12+">
+        <img id="mainImage" src="/src/assets/vent.jpg" alt="Mirage LiFE">
         
         <!-- BADGE OFERTA ESPECIAL -->
         <div class="badge-oferta-especial">
@@ -43,15 +43,75 @@
       <!-- Marca y modelo -->
       <div class="product-ml-brand-row">
         <span class="product-ml-brand">Mirage</span>
-        <span class="product-ml-model">LiFE 12+</span>
+        <span class="product-ml-model">LiFE</span>
       </div>
       
-      <h1 class="product-ml-title">Aire Acondicionado Mirage LiFE 12+</h1>
+      <h1 class="product-ml-title">Aire Acondicionado Mirage LiFE</h1>
       
       <div class="product-ml-tagline">
         Certificado con la máxima eficiencia mundial · Solo Frío
       </div>
       
+      <!-- SELECTOR DE CAPACIDAD -->
+      <div class="capacity-selector">
+        <h4>Selecciona la capacidad:</h4>
+        <div class="capacity-options">
+          <button class="capacity-btn active" data-capacity="1 TR" data-btu="12,000 BTU" data-model="ELF1P12T">
+            <span class="cap-value">1 TR</span>
+            <span class="cap-sub">12,000 BTU</span>
+          </button>
+          <button class="capacity-btn" data-capacity="1.5 TR" data-btu="18,000 BTU" data-model="ELF1P18T">
+            <span class="cap-value">1.5 TR</span>
+            <span class="cap-sub">18,000 BTU</span>
+          </button>
+          <button class="capacity-btn" data-capacity="2 TR" data-btu="24,000 BTU" data-model="ELF1P24T">
+            <span class="cap-value">2 TR</span>
+            <span class="cap-sub">24,000 BTU</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- ACORDEÓN DE AYUDA - SIN RESALTADO -->
+      <div class="help-accordion">
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false">
+            <span class="accordion-header-content">
+              <span class="question-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+              </span>
+              ¿Qué capacidad necesito?
+            </span>
+            <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0c1a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="accordion-body">
+            <div class="guide-content">
+              <div class="guide-item">
+                <span class="guide-cap">1 TR</span>
+                <span class="guide-desc">Habitaciones pequeñas (hasta 15 m²)</span>
+              </div>
+              <div class="guide-item">
+                <span class="guide-cap">1.5 TR</span>
+                <span class="guide-desc">Habitaciones medianas (15-25 m²)</span>
+              </div>
+              <div class="guide-item">
+                <span class="guide-cap">2 TR</span>
+                <span class="guide-desc">Habitaciones grandes o salas (25-35 m²)</span>
+              </div>
+              <div class="guide-footer">
+                <i data-lucide="info"></i>
+                <span>Si tienes dudas, ¡contáctame y te asesoro gratis!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Especificaciones destacadas -->
       <div class="product-ml-specs-grid">
         <div class="spec-item-ml">
@@ -77,26 +137,6 @@
         </div>
       </div>
 
-      <!-- Detalles técnicos -->
-      <div class="product-ml-details">
-        <div class="detail-row">
-          <span class="detail-label">Modelo:</span>
-          <span class="detail-value">ELF1P12T / 12K</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-label">Capacidad:</span>
-          <span class="detail-value">1 TR · 12,000 BTU</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-label">Voltaje:</span>
-          <span class="detail-value">230V / 60Hz</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-label">Tipo:</span>
-          <span class="detail-value">Solo Frío</span>
-        </div>
-      </div>
-
       <!-- Características adicionales -->
       <div class="product-ml-features">
         <h4>Características destacadas</h4>
@@ -107,16 +147,20 @@
           <li><i data-lucide="check-circle" class="check-icon"></i> Control remoto con pantalla LCD</li>
         </ul>
       </div>
-
-      <!-- Botón de WhatsApp -->
+      <!-- Botón principal COMPRAR -->
       <div class="product-ml-cta-container">
-        <a href="https://wa.me/529991403113?text=Hola%2C%20quiero%20comprar%20un%20aire%20acondicionado%20Mirage%20LiFE%2012%2B%20(ELF1P12T%20-%2012%2C000%20BTU)" class="btn-ml-whatsapp" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#ffffff">
+        <a 
+          href="https://wa.me/529991403113?text=Hola%2C%20quiero%20pedir%20un%20aire%20acondicionado%20Mirage%20LiFE%201%20TR%20(ELF1P12T%20-%2012%2C000%20BTU)" 
+          id="whatsappBtn" 
+          target="_blank"
+          class="btn-ml-whatsapp">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
-          <span>Comprar ahora</span>
+          <span>COMPRAR AHORA</span>
         </a>
       </div>
+
     </div>
   </div>
 
@@ -124,9 +168,23 @@
   <div class="products-note">
     <i data-lucide="info"></i>
     <p>
-      <strong>¿Tienes dudas sobre este equipo?</strong>
-      Te asesoramos gratis. Solo cuéntanos el tamaño de tu espacio y uso que le darás, y te confirmamos si es la mejor opción.
+      <strong>¿Tienes dudas sobre qué capacidad necesitas?</strong>
+      Te asesoramos gratis. Solo cuéntanos el tamaño de tu espacio y uso que le darás.
     </p>
-    <a href="https://wa.me/529991403113?text=Hola,%20necesito%20asesoría%20para%20el%20Mirage%20LiFE%2012+" class="btn-ml-whatsapp" style="flex-shrink:0; padding: 0.7rem 1.4rem;" target="_blank">Asesoría gratis →</a>
+    <a 
+      href="https://wa.me/529991403113?text=Hola,%20necesito%20asesor%C3%ADa%20para%20elegir%20la%20capacidad%20de%20un%20Mirage%20LiFE" 
+      class="btn-ml-whatsapp btn-asesoria" 
+      target="_blank">
+      Asesoría gratis →
+    </a>
+  </div>
+  <!-- NOTA INFORMATIVA -->
+  <div class="products-note">
+    <i data-lucide="info"></i>
+    <p>
+      <strong>¿Tienes dudas sobre qué capacidad necesitas?</strong>
+      Te asesoramos gratis. Solo cuéntanos el tamaño de tu espacio y uso que le darás, y te recomendamos la mejor opción.
+    </p>
+    <a href="https://wa.me/529991403113?text=Hola,%20necesito%20asesoría%20para%20elegir%20la%20capacidad%20de%20un%20Mirage%20LiFE" class="btn-ml-whatsapp" style="flex-shrink:0; padding: 0.7rem 1.4rem;" target="_blank">Asesoría gratis →</a>
   </div>
 </section>
