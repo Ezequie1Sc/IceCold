@@ -1,6 +1,6 @@
 /* ── FOOTER ── */
 footer {
-  background:  #f8fafc; /* Azul profundo que combina con toda la web */
+  background: #0c1a2e;
   padding: 3rem 5% 1.5rem;
   border-top: 3px solid #0284C7;
 }
@@ -27,24 +27,44 @@ footer {
   font-weight: 800;
   color: #ffffff;
   text-decoration: none;
-  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+}
+
+.footer-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 0.3rem;
 }
 
-.footer-logo .dot {
-  color: #0284C7;
+.footer-logo-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: #ffffff;
 }
 
-.footer-logo svg {
-  width: 24px;
-  height: 24px;
+.footer-logo-name {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.footer-logo-sub {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.05em;
 }
 
 .footer-desc {
   font-size: 0.85rem;
-  color: #b8c9dd; /* Azul claro */
+  color: #b8c9dd;
   line-height: 1.6;
   max-width: 280px;
 }
@@ -159,5 +179,9 @@ footer {
   
   .footer-desc {
     max-width: 100%;
+  }
+  
+  .footer-logo {
+    align-items: center;
   }
 }
