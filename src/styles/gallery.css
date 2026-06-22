@@ -6,6 +6,7 @@
     linear-gradient(135deg, #f0f7ff 0%, #e8f0fe 100%);
   position: relative;
   overflow: hidden;
+  font-family: 'Outfit', sans-serif;
 }
 
 .trabajos-container {
@@ -24,7 +25,6 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: 'Outfit', sans-serif;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -43,7 +43,6 @@
 }
 
 .section-title {
-  font-family: 'Outfit', sans-serif;
   font-size: clamp(2.4rem, 4vw, 3.2rem);
   font-weight: 800;
   color: #0c1a2e;
@@ -53,6 +52,13 @@
 
 .section-title .accent {
   color: #0284C7;
+}
+
+.section-desc {
+  color: #64748b;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0.5rem 0 0 0;
 }
 
 /* ── BLOQUES ── */
@@ -81,7 +87,6 @@
   color: #ffffff;
   display: grid;
   place-items: center;
-  font-family: 'Outfit', sans-serif;
   font-size: 0.8rem;
   font-weight: 800;
   box-shadow: 0 8px 18px rgba(2, 132, 199, 0.28);
@@ -89,7 +94,6 @@
 
 .trabajo-block-header h3 {
   margin: 0;
-  font-family: 'Outfit', sans-serif;
   color: #0c1a2e;
   font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 800;
@@ -119,13 +123,13 @@
   filter: brightness(1.04);
 }
 
+/* ── GALERÍA DE VIDEOS (VERTICALES LADO A LADO) ── */
 .videos-gallery {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  padding: 1rem 0;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .videos-gallery video {
@@ -168,7 +172,6 @@
   color: #ffffff;
   font-size: 1.1rem;
   font-weight: 800;
-  font-family: 'Outfit', sans-serif;
 }
 
 .footer-sub {
@@ -180,6 +183,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.6rem;
   background: #25d366;
   color: #ffffff;
   padding: 0.8rem 1.8rem;
@@ -188,7 +192,6 @@
   font-size: 0.95rem;
   text-decoration: none;
   transition: all 0.3s ease;
-  font-family: 'Outfit', sans-serif;
   box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 
@@ -221,7 +224,8 @@
   }
 
   .videos-gallery {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 100%;
   }
 
   .trabajos-footer {
@@ -250,10 +254,10 @@
 
   .videos-gallery {
     grid-template-columns: 1fr;
+    max-width: 320px;
   }
 
   .videos-gallery video {
-    max-width: 280px;
-    margin: 0 auto;
+    aspect-ratio: 9 / 16;
   }
 }
