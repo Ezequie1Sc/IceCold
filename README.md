@@ -1,4 +1,3 @@
-````markdown
 <div align="center">
 
 # Técnico Miguel Salazar
@@ -102,5 +101,4 @@ GitHub: https://github.com/Ezequie1Sc
 
 Portafolio: https://portafolio-phi-six-35.vercel.app/
 
-```
-```
+
